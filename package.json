@@ -1,0 +1,20 @@
+{
+  "name": "vincentallio_7_25112021",
+  "version": "1.0.0",
+  "description": "Développez un algorithme de recherche en JavaScript",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch ./sass/main.scss:./public/css/style.css",
+    "prefix": "postcss --watch ./public/css/style.css --use autoprefixer -d ./public/css/prefixed/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yuuusuuke/VincentAllio_7_25112021.git"
+  },
+  "author": "Vincent Allio",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Yuuusuuke/VincentAllio_7_25112021/issues"
+  },
+  "homepage": "https://github.com/Yuuusuuke/VincentAllio_7_25112021#readme"
+}
