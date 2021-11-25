@@ -1,0 +1,11 @@
+.header {
+    display: flex;
+    justify-content: center;
+
+    margin-top: 42px;
+    margin-bottom: 17px;
+
+    &__image {
+        width: 268px;
+    }
+}
