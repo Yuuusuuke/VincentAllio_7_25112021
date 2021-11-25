@@ -1,0 +1,44 @@
+.filters {
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+
+    &__dropdown {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        border-radius: 5px;
+
+        &:not(:first-child) {
+            margin-left: 20px;
+        }
+
+        padding: 23px 15px;
+
+        &__text {
+            font-family: "Lato";
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 21.6px;
+        }
+
+        &__icon {
+            font-size: 16px;
+            margin-left: 31px;
+        }
+
+        &--ingredient {
+            background-color: $colorTertiary;
+        }
+
+        &--appareil {
+            background-color: $colorSecondary;
+        }
+
+        &--ustensile {
+            background-color: $colorPrimary;
+        }
+    }
+}

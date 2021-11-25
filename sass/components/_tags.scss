@@ -1,0 +1,41 @@
+.tags {
+    margin-top: 25px;
+    margin-bottom: 15px;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+
+    &__tag {
+        display: flex;
+        flex-direction: row;
+        padding: 8px 22px;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        border-radius: 5px;
+
+        &__text {
+            font-family: "Lato";
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 16.8px;
+        }
+
+        &__icon {
+            font-size: 20px;
+            margin-left: 13px;
+        }
+
+        &--ingredient {
+            background-color: $colorTertiary;
+        }
+
+        &--appareil {
+            background-color: $colorSecondary;
+        }
+
+        &--ustensile {
+            background-color: $colorPrimary;
+        }
+    }
+}

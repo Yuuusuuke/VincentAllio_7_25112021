@@ -1,16 +1,17 @@
 *,
 ::before,
-::after {
+::after,
+p {
     margin: 0;
     padding: 0;
-    text-decoration: none;
 }
 
 a {
     color: black;
 
     &:hover {
-        color: black;
+        color: white;
         cursor: pointer;
+        text-decoration: none;
     }
 }
