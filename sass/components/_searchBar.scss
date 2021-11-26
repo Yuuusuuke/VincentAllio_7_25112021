@@ -20,12 +20,16 @@
         border: none;
         background-color: $colorGrey;
 
+        text-overflow: ellipsis;
+
         &:focus-visible {
             outline: none;
         }
     }
 
     &__valid {
+        margin-left: 10px;
+
         &__icon {
             font-size: 32px;
         }

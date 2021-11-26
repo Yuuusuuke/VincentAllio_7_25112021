@@ -1,7 +1,9 @@
 .filters {
     padding: 0;
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
+    margin-bottom: 25px;
 
     &__dropdown {
         display: flex;
@@ -10,10 +12,7 @@
         justify-content: center;
         color: white;
         border-radius: 5px;
-
-        &:not(:first-child) {
-            margin-left: 20px;
-        }
+        margin-right: 20px;
 
         padding: 23px 15px;
 
