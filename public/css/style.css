@@ -53,6 +53,12 @@ a:hover {
 .searchBar__valid__icon {
   font-size: 32px;
 }
+.searchBar__valid__icon:hover {
+  color: black;
+}
+.searchBar__valid:hover .searchBar__valid__icon {
+  color: black;
+}
 
 .tags {
   margin-top: 25px;
@@ -79,6 +85,7 @@ a:hover {
 .tags__tag__icon {
   font-size: 20px;
   margin-left: 13px;
+  cursor: pointer;
 }
 .tags__tag--ingredient {
   background-color: #3282F7;
@@ -114,7 +121,7 @@ a:hover {
   line-height: 21.6px;
   color: white;
   border: none;
-  max-width: 100px;
+  max-width: 170px;
 }
 .filters__dropdown__text:focus-visible {
   outline: none;
@@ -125,6 +132,10 @@ a:hover {
 .filters__dropdown__icon {
   font-size: 16px;
   margin-left: 31px;
+  transition: all ease 0.5s;
+}
+.filters__dropdown__icon.flip {
+  transform: rotate(-180deg);
 }
 .filters__dropdown--ingredient, .filters__dropdown--ingredient .filters__dropdown__text {
   background-color: #3282F7;
