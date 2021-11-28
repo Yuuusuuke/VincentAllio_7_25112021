@@ -21,6 +21,19 @@
             font-size: 18px;
             font-weight: 700;
             line-height: 21.6px;
+            color: white;
+
+            border: none;
+
+            max-width: 100px;
+
+            &:focus-visible {
+                outline: none;
+            }
+
+            &::placeholder {
+                color: white;
+            }
         }
 
         &__icon {
@@ -28,15 +41,18 @@
             margin-left: 31px;
         }
 
-        &--ingredient {
+        &--ingredient,
+        &--ingredient &__text {
             background-color: $colorTertiary;
         }
 
-        &--appareil {
+        &--appareil,
+        &--appareil &__text {
             background-color: $colorSecondary;
         }
 
-        &--ustensile {
+        &--ustensile,
+        &--ustensile &__text {
             background-color: $colorPrimary;
         }
     }
