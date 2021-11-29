@@ -34,5 +34,6 @@ function openDropdown(element){
 function closeDropdown(element){
     element.children[1].classList.remove("flip");
     element.classList.remove("expend");
+    element.classList.remove("expend--2");
     element.children[2].classList.remove("show");
 }

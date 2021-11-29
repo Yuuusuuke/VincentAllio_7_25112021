@@ -42,6 +42,72 @@ function addTag(name, type){
     area.appendChild(render);
 }
 
+/**
+ * * Display a card with all the information from the object in parameter
+ * 
+ * @param  {Object} card
+ */
+function addCard(card){
+    var area = document.getElementsByClassName("cardsTable")[0];
+
+    var render = document.createElement("a");
+    render.classList.add("cardsTable__card");
+    render.classList.add("card");
+    render.classList.add("col");
+
+    var subrender = document.createElement("img");
+    subrender.classList.add("card__image");
+    render.appendChild(subrender);
+
+    subrender = document.createElement("div");
+    subrender.classList.add("card__description");
+
+    var header = document.createElement("div");
+    header.classList.add("card__description__header");
+    var element = document.createElement("h1");
+    element.classList.add("card__description__header__title");
+    // TODO: Add Card Title
+    header.appendChild(element);
+
+    element = document.createElement("i");
+    element.classList.add("far");
+    element.classList.add("fa-clock");
+    element.classList.add("card__description__header__icon");
+    header.appendChild(element);
+
+    element = document.createElement("p");
+    element.classList.add("card__description__header__time");
+    // TODO: Add Card Time
+    header.appendChild(element);
+    subrender.appendChild(header);
+
+    header = document.createElement("div");
+    header.classList.add("card__description__content");
+    header.classList.add("row-cols-2");
+
+    // TODO: Add content for ingredient
+
+    element = document.createElement("p");
+    element.classList.add("card__description__content__explaination");
+    // TODO: Add Explaination
+    header.appendChild(element);
+    subrender.appendChild(header);
+    render.appendChild(subrender);
+
+    area.appendChild(render);
+}
+
+/**
+ * * Erase every child from a parent node
+ * 
+ * @param  {node} parent
+ */
+function eraseContent(parent){
+    while (parent.firstChild){
+        parent.removeChild(parent.firstChild);
+    }
+}
+
 
 console.log("Add a tag");
 addTag("Coco", "ingredient");
