@@ -27,17 +27,5 @@
 
             cursor: pointer;
         }
-
-        &--ingredient {
-            background-color: $colorTertiary;
-        }
-
-        &--appareil {
-            background-color: $colorSecondary;
-        }
-
-        &--ustensile {
-            background-color: $colorPrimary;
-        }
     }
 }

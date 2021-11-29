@@ -87,15 +87,6 @@ a:hover {
   margin-left: 13px;
   cursor: pointer;
 }
-.tags__tag--ingredient {
-  background-color: #3282F7;
-}
-.tags__tag--appareil {
-  background-color: #68D9A4;
-}
-.tags__tag--ustensile {
-  background-color: #ED6454;
-}
 
 .filters {
   padding: 0;
@@ -133,6 +124,7 @@ a:hover {
   font-weight: 700;
   line-height: 21.6px;
   color: white;
+  text-overflow: ellipsis;
   border: none;
   width: 73%;
   transition: all 0.5s ease;
@@ -171,15 +163,6 @@ a:hover {
 }
 .filters__dropdown__content.show {
   display: flex;
-}
-.filters__dropdown--ingredient, .filters__dropdown--ingredient .filters__dropdown__text, .filters__dropdown--ingredient .filters__dropdown__content {
-  background-color: #3282F7;
-}
-.filters__dropdown--appareil, .filters__dropdown--appareil .filters__dropdown__text, .filters__dropdown--appareil .filters__dropdown__content {
-  background-color: #68D9A4;
-}
-.filters__dropdown--ustensile, .filters__dropdown--ustensile .filters__dropdown__text, .filters__dropdown--ustensile .filters__dropdown__content {
-  background-color: #ED6454;
 }
 
 .card {
@@ -230,7 +213,7 @@ a:hover {
 }
 .card__description__content {
   display: flex;
-  align-items: start;
+  align-items: flex-start;
   justify-content: center;
 }
 .card__description__content__ingredients {
@@ -267,6 +250,18 @@ a:hover {
   flex-wrap: wrap;
   flex-direction: row;
   padding: 0;
+}
+
+.ingredient {
+  background-color: #3282F7;
+}
+
+.appareil {
+  background-color: #68D9A4;
+}
+
+.ustensile {
+  background-color: #ED6454;
 }
 
 /*# sourceMappingURL=style.css.map */

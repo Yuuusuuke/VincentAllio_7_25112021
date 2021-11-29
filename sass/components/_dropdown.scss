@@ -41,6 +41,7 @@
             font-weight: 700;
             line-height: 21.6px;
             color: white;
+            text-overflow: ellipsis;
 
             border: none;
 
@@ -94,24 +95,6 @@
                 display: flex;
             }
 
-        }
-
-        &--ingredient,
-        &--ingredient &__text,
-        &--ingredient &__content {
-            background-color: $colorTertiary;
-        }
-
-        &--appareil,
-        &--appareil &__text,
-        &--appareil &__content {
-            background-color: $colorSecondary;
-        }
-
-        &--ustensile,
-        &--ustensile &__text,
-        &--ustensile &__content {
-            background-color: $colorPrimary;
         }
     }
 }
