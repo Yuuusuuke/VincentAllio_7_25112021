@@ -111,6 +111,7 @@ a:hover {
   border-radius: 5px;
   margin-right: 20px;
   padding: 23px 20px;
+  cursor: pointer;
   width: 223px;
   transition: all 0.5s ease;
 }
@@ -229,7 +230,7 @@ a:hover {
 }
 .card__description__content {
   display: flex;
-  align-items: top;
+  align-items: start;
   justify-content: center;
 }
 .card__description__content__ingredients {
