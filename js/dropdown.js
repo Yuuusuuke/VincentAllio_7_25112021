@@ -22,6 +22,8 @@ document.getElementsByClassName("filters__dropdown")[2].addEventListener("click"
  */
 function openDropdown(element){
     element.children[1].classList.add("flip");
+    element.classList.add("expend");
+    element.children[2].classList.add("show");
 }
 
 /**
@@ -31,4 +33,6 @@ function openDropdown(element){
  */
 function closeDropdown(element){
     element.children[1].classList.remove("flip");
+    element.classList.remove("expend");
+    element.children[2].classList.remove("show");
 }

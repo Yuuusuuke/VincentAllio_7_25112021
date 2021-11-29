@@ -5,6 +5,7 @@
     <meta charset="utf-8" />
     <title>Les petits plats</title>
     <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="icon" href="./ressources/icon.png" />
 
     <!-- Bootstrap-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
@@ -20,7 +21,7 @@
     </header>
 
     <section class="searchBar container">
-        <input type="text" placeholder="Rechercher un ingredient, appareil, ustensiles ou une recette"
+        <input type="search" placeholder="Rechercher un ingredient, appareil, ustensiles ou une recette"
             class="searchBar__input" />
         <a class="searchBar__valid">
             <i class="fas fa-search searchBar__valid__icon"></i>
@@ -34,19 +35,40 @@
         <a class="filters__dropdown filters__dropdown--ingredient">
             <input type="text" class="filters__dropdown__text" placeholder="Ingredient" />
             <i class="fas fa-chevron-down filters__dropdown__icon"></i>
+            <div class="filters__dropdown__content row row-cols-3">
+                <p>Des pâtes</p>
+                <p>Des pâtes</p>
+                <p>Des pâtes</p>
+                <p>Des pâtes</p>
+                <p>Des pâtes</p>
+            </div>
         </a>
         <a class="filters__dropdown filters__dropdown--appareil">
-            <input class="filters__dropdown__text" placeholder="Appareils" />
+            <input type="text" class="filters__dropdown__text" placeholder="Appareils" />
             <i class="fas fa-chevron-down filters__dropdown__icon"></i>
+            <div class="filters__dropdown__content row row-cols-3">
+                <p>Des pâtes</p>
+                <p>Des pâtes</p>
+                <p>Des pâtes</p>
+                <p>Des pâtes</p>
+                <p>Des pâtes</p>
+            </div>
         </a>
         <a class="filters__dropdown filters__dropdown--ustensile">
-            <input class="filters__dropdown__text" placeholder="Ustensiles" />
+            <input type="text" class="filters__dropdown__text" placeholder="Ustensiles" />
             <i class="fas fa-chevron-down filters__dropdown__icon"></i>
+            <div class="filters__dropdown__content row row-cols-3">
+                <p>Des pâtes</p>
+                <p>Des pâtes</p>
+                <p>Des pâtes</p>
+                <p>Des pâtes</p>
+                <p>Des pâtes</p>
+            </div>
         </a>
     </section>
 
     <main class="container">
-        <div class="cardsTable row row-cols-1 row-cols-lg-3 justify-content-between">
+        <div class="cardsTable row row-cols-1 row-cols-md-2 row-cols-lg-3 justify-content-between">
             <a class="cardsTable__card card col">
                 <img class="card__image" />
                 <div class="card__description">
@@ -161,6 +183,7 @@
         </div>
     </main>
 
+    <script src="js/search.js"></script>
     <script src="js/dropdown.js"></script>
     <script src="js/main.js"></script>
 

@@ -105,14 +105,20 @@ a:hover {
   margin-bottom: 25px;
 }
 .filters__dropdown {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+  position: relative;
+  display: inline-block;
   color: white;
   border-radius: 5px;
   margin-right: 20px;
-  padding: 23px 15px;
+  padding: 23px 20px;
+  width: 223px;
+  transition: all 0.5s ease;
+}
+.filters__dropdown.expend {
+  width: 667px;
+}
+.filters__dropdown.expend .filters__dropdown__text {
+  width: 90%;
 }
 .filters__dropdown__text {
   font-family: "Lato";
@@ -121,7 +127,8 @@ a:hover {
   line-height: 21.6px;
   color: white;
   border: none;
-  max-width: 170px;
+  width: 73%;
+  transition: all 0.5s ease;
 }
 .filters__dropdown__text:focus-visible {
   outline: none;
@@ -132,18 +139,34 @@ a:hover {
 .filters__dropdown__icon {
   font-size: 16px;
   margin-left: 31px;
-  transition: all ease 0.5s;
+  transition: transform ease 0.5s;
 }
 .filters__dropdown__icon.flip {
-  transform: rotate(-180deg);
+  transform: rotateX(-180deg);
 }
-.filters__dropdown--ingredient, .filters__dropdown--ingredient .filters__dropdown__text {
+.filters__dropdown__content {
+  display: none;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  z-index: 1;
+  border-radius: 5px;
+  padding: 12px 20px 16px 20px;
+  margin: 0;
+}
+.filters__dropdown__content p {
+  min-width: 200px;
+}
+.filters__dropdown__content.show {
+  display: flex;
+}
+.filters__dropdown--ingredient, .filters__dropdown--ingredient .filters__dropdown__text, .filters__dropdown--ingredient .filters__dropdown__content {
   background-color: #3282F7;
 }
-.filters__dropdown--appareil, .filters__dropdown--appareil .filters__dropdown__text {
+.filters__dropdown--appareil, .filters__dropdown--appareil .filters__dropdown__text, .filters__dropdown--appareil .filters__dropdown__content {
   background-color: #68D9A4;
 }
-.filters__dropdown--ustensile, .filters__dropdown--ustensile .filters__dropdown__text {
+.filters__dropdown--ustensile, .filters__dropdown--ustensile .filters__dropdown__text, .filters__dropdown--ustensile .filters__dropdown__content {
   background-color: #ED6454;
 }
 

@@ -6,15 +6,26 @@
     margin-bottom: 25px;
 
     &__dropdown {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
+        position: relative;
+        display: inline-block;
         color: white;
         border-radius: 5px;
         margin-right: 20px;
 
-        padding: 23px 15px;
+        padding: 23px 20px;
+
+        width: 223px;
+
+        transition: all .5s ease;
+
+        &.expend {
+            width: 667px;
+        }
+
+        &.expend &__text {
+            width: 90%;
+        }
+
 
         &__text {
             font-family: "Lato";
@@ -25,7 +36,9 @@
 
             border: none;
 
-            max-width: 170px;
+            width: 73%;
+
+            transition: all .5s ease;
 
             &:focus-visible {
                 outline: none;
@@ -40,25 +53,49 @@
             font-size: 16px;
             margin-left: 31px;
 
-            transition: all ease .5s;
+            transition: transform ease .5s;
 
             &.flip {
-                transform: rotate(-180deg);
+                transform: rotateX(-180deg);
             }
         }
 
+        &__content {
+            display: none;
+            position: absolute;
+            width: 100%;
+            left: 0;
+            z-index: 1;
+            border-radius: 5px;
+
+            padding: 12px 20px 16px 20px;
+            margin: 0;
+
+            & p {
+                min-width: 200px;
+            }
+
+            &.show {
+                display: flex;
+            }
+
+        }
+
         &--ingredient,
-        &--ingredient &__text {
+        &--ingredient &__text,
+        &--ingredient &__content {
             background-color: $colorTertiary;
         }
 
         &--appareil,
-        &--appareil &__text {
+        &--appareil &__text,
+        &--appareil &__content {
             background-color: $colorSecondary;
         }
 
         &--ustensile,
-        &--ustensile &__text {
+        &--ustensile &__text,
+        &--ustensile &__content {
             background-color: $colorPrimary;
         }
     }
