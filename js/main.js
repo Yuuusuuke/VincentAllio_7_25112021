@@ -23,7 +23,7 @@ function addTag(name, type){
 
     var render = document.createElement("div");
     render.classList.add("tags__tag");
-    render.classList.add("tags__tag--"+ type);
+    render.classList.add(type);
     var subrender = document.createElement("p");
     subrender.classList.add("tags__tag__text");
     subrender.innerHTML = name;
@@ -57,6 +57,8 @@ function addCard(card){
 
     var subrender = document.createElement("img");
     subrender.classList.add("card__image");
+    subrender.src = "#";
+    subrender.alt = card.name + " image";
     render.appendChild(subrender);
 
     subrender = document.createElement("div");
@@ -66,7 +68,9 @@ function addCard(card){
     header.classList.add("card__description__header");
     var element = document.createElement("h1");
     element.classList.add("card__description__header__title");
-    // TODO: Add Card Title
+
+    element.innerHTML = card.name;
+
     header.appendChild(element);
 
     element = document.createElement("i");
@@ -77,7 +81,9 @@ function addCard(card){
 
     element = document.createElement("p");
     element.classList.add("card__description__header__time");
-    // TODO: Add Card Time
+
+    element.innerHTML = card.time
+
     header.appendChild(element);
     subrender.appendChild(header);
 
@@ -85,11 +91,25 @@ function addCard(card){
     header.classList.add("card__description__content");
     header.classList.add("row-cols-2");
 
-    // TODO: Add content for ingredient
+    element = document.createElement("p");
+    element.classList.add("card__description__content__ingredients");
+    card.ingredients.forEach(e => {
+        element.innerHTML += "<span class='card__description__content__ingredients--bold'>" + e.ingredient;
+        if(e.quantity != undefined){
+            element.innerHTML += " : </span>" + e.quantity;
+            if(e.unit != undefined){
+                element.innerHTML += " " + e.unit;
+            }
+        }
+        element.innerHTML += "<br />";
+    });
+    header.appendChild(element);
 
     element = document.createElement("p");
     element.classList.add("card__description__content__explaination");
-    // TODO: Add Explaination
+
+    element.innerHTML = card.description;
+
     header.appendChild(element);
     subrender.appendChild(header);
     render.appendChild(subrender);
@@ -108,6 +128,45 @@ function eraseContent(parent){
     }
 }
 
+var card = {
+    "id": 1,
+    "name" : "Limonade de Coco",
+    "servings" : 1,
+    "ingredients": [
+        {
+            "ingredient" : "Lait de coco",
+            "quantity" : 400,
+            "unit" : "ml"
+        },
+        {
+            "ingredient" : "Citron",
+            "quantity" : 2
+        },
+        {
+            "ingredient" : "Crème de coco",
+            "quantity" : 2,
+            "unit" : "cuillères à soupe"
+        },
+        {
+            "ingredient" : "Sucre",
+            "quantity" : 30,
+            "unit" : "grammes"
+        },
+        {
+            "ingredient": "Glaçons"
+        }
+    ],
+    "time": 10,
+    "description": "Mettre les glaçons à votre goût dans le blender, ajouter le lait, la crème de coco, le jus de 2 citrons et le sucre. Mixer jusqu'à avoir la consistence désirée",
+    "appliance": "Blender",
+    "ustensils": ["cuillère à Soupe", "verres", "presse citron" ]
+};
 
 console.log("Add a tag");
 addTag("Coco", "ingredient");
+
+console.log("Add cards");
+addCard(card);
+addCard(card);
+addCard(card);
+addCard(card);

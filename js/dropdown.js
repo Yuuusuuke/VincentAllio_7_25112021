@@ -13,6 +13,7 @@ document.getElementsByClassName("filters__dropdown")[0].addEventListener("keyup"
     }
     else{
         openDropdown(this);
+        searchTag(this.children[0].value, "ingredient");
         INGRETOOGLE = true;
     }
 });
@@ -23,6 +24,7 @@ document.getElementsByClassName("filters__dropdown")[1].addEventListener("keyup"
     }
     else{
         openDropdown(this);
+        searchTag(this.children[0].value, "appareil");
         APPATOOGLE = true;
     }
 });
@@ -33,6 +35,7 @@ document.getElementsByClassName("filters__dropdown")[2].addEventListener("keyup"
     }
     else{
         openDropdown(this);
+        searchTag(this.children[0].value, "ustensile");
         USTENTOOGLE = true;
     }
 });
@@ -121,7 +124,6 @@ window.onclick = function(event){
     }
 
     if(APPATOOGLE){
-        console.log(event.target.matches(".appareil"));
         if(!event.target.matches(".appareil")){
             closeDropdown(document.getElementsByClassName("filters__dropdown")[1]);
             APPATOOGLE = false;
@@ -129,7 +131,6 @@ window.onclick = function(event){
     }
 
     if(USTENTOOGLE){
-        console.log(event.target.matches(".ustensile"));
         if(!event.target.matches(".ustensile")){
             closeDropdown(document.getElementsByClassName("filters__dropdown")[2]);
             USTENTOOGLE = false;
