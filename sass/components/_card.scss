@@ -24,7 +24,7 @@
     }
 
     &__description {
-        margin-top: 20px;
+        margin: 20px 0;
         padding: 0 20px;
 
         &__header {
@@ -76,7 +76,11 @@
                 font-weight: 400;
                 line-height: 12px;
 
-                text-overflow: ellipsis;
+                max-height: 110px;
+
+                display: -webkit-box;
+                -webkit-line-clamp: 8;
+                -webkit-box-orient: vertical;
                 overflow: hidden;
             }
         }

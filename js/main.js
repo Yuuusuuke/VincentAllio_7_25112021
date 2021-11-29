@@ -1,3 +1,6 @@
+/* Global variables */
+var RECIPES = [];
+
 /**
  * * Remove a specific tag in the tag area
  * 
@@ -82,7 +85,7 @@ function addCard(card){
     element = document.createElement("p");
     element.classList.add("card__description__header__time");
 
-    element.innerHTML = card.time
+    element.innerHTML = card.time + " min";
 
     header.appendChild(element);
     subrender.appendChild(header);
@@ -128,45 +131,39 @@ function eraseContent(parent){
     }
 }
 
-var card = {
-    "id": 1,
-    "name" : "Limonade de Coco",
-    "servings" : 1,
-    "ingredients": [
-        {
-            "ingredient" : "Lait de coco",
-            "quantity" : 400,
-            "unit" : "ml"
-        },
-        {
-            "ingredient" : "Citron",
-            "quantity" : 2
-        },
-        {
-            "ingredient" : "Crème de coco",
-            "quantity" : 2,
-            "unit" : "cuillères à soupe"
-        },
-        {
-            "ingredient" : "Sucre",
-            "quantity" : 30,
-            "unit" : "grammes"
-        },
-        {
-            "ingredient": "Glaçons"
+function buildRecipes(data){
+    data.forEach(element => {
+        RECIPES.push(CardFactory.createCard(element.id, element.name, element.servings, element.ingredients, element.time, element.description, element.appliance, element.ustensils));
+      });
+}
+
+window.addEventListener("load", () => {
+    fetch("./ressources/recipe.json")
+    .then((response) => {
+        if(response.ok){
+            return response.json();
         }
-    ],
-    "time": 10,
-    "description": "Mettre les glaçons à votre goût dans le blender, ajouter le lait, la crème de coco, le jus de 2 citrons et le sucre. Mixer jusqu'à avoir la consistence désirée",
-    "appliance": "Blender",
-    "ustensils": ["cuillère à Soupe", "verres", "presse citron" ]
-};
+        else{
+            console.log(`Une erreur de type ${response.status}  est survenu ! `);
+        }
+    })
+    .then((data) => {
+        buildRecipes(data);
+        main();
+    })
+})
 
-console.log("Add a tag");
-addTag("Coco", "ingredient");
 
-console.log("Add cards");
-addCard(card);
-addCard(card);
-addCard(card);
-addCard(card);
+function main(){
+    console.log("Add a tag");
+    addTag("Coco", "ingredient");
+
+    console.log("Add cards");
+    addCard(RECIPES[0]);
+    addCard(RECIPES[1]);
+    addCard(RECIPES[2]);
+    addCard(RECIPES[3]);
+}
+
+
+
