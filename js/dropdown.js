@@ -1,7 +1,11 @@
 /* Global variable */
 var INGRETOOGLE = false, APPATOOGLE = false, USTENTOOGLE = false;
 
-/* Event listeners which handle opening or closing a dropdown */
+/**
+* * Event listeners which handle opening or closing a dropdown
+*
+* ! Keyup events
+*/
 document.getElementsByClassName("filters__dropdown")[0].addEventListener("keyup", function (){
     if(this.children[0].value.length === 0){
         closeDropdown(this);
@@ -30,6 +34,58 @@ document.getElementsByClassName("filters__dropdown")[2].addEventListener("keyup"
     else{
         openDropdown(this);
         USTENTOOGLE = true;
+    }
+});
+
+/**
+ * ! When clicking on the chevron
+ */
+document.getElementsByClassName("filters__dropdown")[0].children[1].addEventListener("click", function (){
+    if(this.parentNode.children[0].value.length === 0){
+        closeDropdown(this.parentNode);
+        INGRETOOGLE = false;
+    }
+    else{
+        if(INGRETOOGLE){
+            closeDropdown(this.parentNode);
+            INGRETOOGLE = false;
+        }
+        else{
+            openDropdown(this.parentNode);
+            INGRETOOGLE = true;
+        }
+    }
+});
+document.getElementsByClassName("filters__dropdown")[1].children[1].addEventListener("click", function (){
+    if(this.parentNode.children[0].value.length === 0){
+        closeDropdown(this.parentNode);
+        APPATOOGLE = false;
+    }
+    else{
+        if(APPATOOGLE){
+            closeDropdown(this.parentNode);
+            APPATOOGLE = false;
+        }
+        else{
+            openDropdown(this.parentNode);
+            APPATOOGLE = true;
+        }
+    }
+});
+document.getElementsByClassName("filters__dropdown")[2].children[1].addEventListener("click", function (){
+    if(this.parentNode.children[0].value.length === 0){
+        closeDropdown(this.parentNode);
+        USTENTOOGLE = false;
+    }
+    else{
+        if(USTENTOOGLE){
+            closeDropdown(this.parentNode);
+            USTENTOOGLE = false;
+        }
+        else{
+            openDropdown(this.parentNode);
+            USTENTOOGLE = true;
+        }
     }
 });
 
