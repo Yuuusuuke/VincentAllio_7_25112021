@@ -1,3 +1,5 @@
+
+/* Event listeners which handle opening or closing a dropdown */
 var INGToogle = false, APPToogle = false, USTToogle = false;
 
 document.getElementsByClassName("filters__dropdown")[0].addEventListener("click", function flip(){
@@ -13,10 +15,20 @@ document.getElementsByClassName("filters__dropdown")[2].addEventListener("click"
     USTToogle = !USTToogle;
 });
 
+/**
+ * * Open the specific dropdown
+ * 
+ * @param  {node} element
+ */
 function openDropdown(element){
     element.children[1].classList.add("flip");
 }
 
+/**
+ * * Close the specific dropdown
+ * 
+ * @param  {node} element
+ */
 function closeDropdown(element){
     element.children[1].classList.remove("flip");
 }
