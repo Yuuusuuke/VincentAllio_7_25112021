@@ -215,6 +215,7 @@ a:hover {
 }
 
 .card {
+  display: flex;
   background-color: #E7E7E7;
   padding: 0;
   border-radius: 5px;
@@ -235,6 +236,8 @@ a:hover {
 .card__image {
   height: 178px;
   background-color: #C7BEBE;
+  object-fit: cover;
+  border-radius: 5px 5px 0 0;
 }
 .card__description {
   margin: 20px 0;

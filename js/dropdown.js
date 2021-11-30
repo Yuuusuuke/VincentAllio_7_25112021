@@ -97,19 +97,19 @@ document.getElementsByClassName("filters__dropdown")[2].children[1].addEventList
  */
  document.getElementsByClassName("filters__dropdown")[0].children[0].addEventListener("click", function (){
     openDropdown(this.parentNode);
-    searchTag("", "ingredient");
+    searchTag(this.value, "ingredient");
     this.placeholder = "Recherche un ingredient";
     INGRETOOGLE = true;
 });
 document.getElementsByClassName("filters__dropdown")[1].children[0].addEventListener("click", function (){
     openDropdown(this.parentNode);
-    searchTag("", "appareil");
+    searchTag(this.value, "appareil");
     this.placeholder = "Recherche un appareil";
     APPATOOGLE = true;
 });
 document.getElementsByClassName("filters__dropdown")[2].children[0].addEventListener("click", function (){
     openDropdown(this.parentNode);
-    searchTag("", "ustensile");
+    searchTag(this.value, "ustensile");
     this.placeholder = "Recherche un ustensile";
     USTENTOOGLE = true;
 });

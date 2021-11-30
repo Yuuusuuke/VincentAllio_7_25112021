@@ -65,7 +65,7 @@ function addCard(card){
 
     var subrender = document.createElement("img");
     subrender.classList.add("card__image");
-    subrender.src = "#";
+    subrender.src = "./ressources/pictures/" + card.getID() + ".jpg";
     subrender.alt = card.getName() + " image";
     render.appendChild(subrender);
 
@@ -182,16 +182,5 @@ window.addEventListener("load", () => {
     .then((data) => {
         buildRecipes(data);
         displayAllRecipes();
-        main();
     })
 })
-
-/**
- */
-function main(){
-    console.log("Add a tag");
-    addTag("Coco", "ingredient");
-}
-
-
-

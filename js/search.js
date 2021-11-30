@@ -1,6 +1,17 @@
 /* Global variables */
 var CURRENT_RECIPES = [];
 
+document.getElementsByClassName("searchBar__input")[0].addEventListener("keyup", function(){
+    if(this.value.length >= 3){
+        search(this.value);
+    }
+    else{
+        for(var i=1; i<=50; i++){
+            document.getElementById(i).style.display = "flex";
+        }
+    }
+})
+
 /**
  * * Search in json elements corresponding with the data in parameters and returns an array of these elements
  * 
@@ -49,7 +60,7 @@ function searchTag(data, type){
     eraseContent(document.getElementsByClassName("filters__dropdown--"+type)[0].children[2])
 
     var count = 0;
-    while(count < 50 && count != items.length){
+    while(count < 51 && count != items.length){
         addTagDropdown(items[count], type);
         count++;
     }
