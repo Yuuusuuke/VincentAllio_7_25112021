@@ -93,6 +93,25 @@ document.getElementsByClassName("filters__dropdown")[2].children[1].addEventList
 });
 
 /**
+ * ! When clicking on the input
+ */
+ document.getElementsByClassName("filters__dropdown")[0].children[0].addEventListener("click", function (){
+    openDropdown(this.parentNode);
+    this.placeholder = "Recherche un ingredient";
+    INGRETOOGLE = true;
+});
+document.getElementsByClassName("filters__dropdown")[1].children[0].addEventListener("click", function (){
+    openDropdown(this.parentNode);
+    this.placeholder = "Recherche un appareil";
+    APPATOOGLE = true;
+});
+document.getElementsByClassName("filters__dropdown")[2].children[0].addEventListener("click", function (){
+    openDropdown(this.parentNode);
+    this.placeholder = "Recherche un ustensile";
+    USTENTOOGLE = true;
+});
+
+/**
  * * Open the specific dropdown
  * 
  * @param  {node} element
@@ -113,6 +132,10 @@ function closeDropdown(element){
     element.classList.remove("expend");
     element.classList.remove("expend--2");
     element.children[2].classList.remove("show");
+
+    if(element.children[0].value === ""){
+        element.children[0].placeholder = element.children[0].getAttribute("default");
+    }
 }
 
 window.onclick = function(event){

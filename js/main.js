@@ -130,11 +130,38 @@ function eraseContent(parent){
         parent.removeChild(parent.firstChild);
     }
 }
+/**
+ * * Create a blank card in order to display card correctly
+ */
+function addVoidCard(){
+    var area = document.getElementsByClassName("cardsTable")[0];
 
+    var voidElement = document.createElement("div");
+    area.appendChild(voidElement);
+}
+/**
+ * * Create objects from a json string
+ * 
+ * @param  {JSON} data
+ */
 function buildRecipes(data){
+    console.log(data);
     data.forEach(element => {
         RECIPES.push(CardFactory.createCard(element.id, element.name, element.servings, element.ingredients, element.time, element.description, element.appliance, element.ustensils));
       });
+}
+/**
+ * * Display every recipes
+ */
+function displayAllRecipes(){
+    RECIPES.forEach(element => {
+        addCard(element);
+    });
+    
+    if(RECIPES.length%3 === 2){
+        addVoidCard();
+    }
+    CURRENT_RECIPES = RECIPES;
 }
 
 window.addEventListener("load", () => {
@@ -149,20 +176,18 @@ window.addEventListener("load", () => {
     })
     .then((data) => {
         buildRecipes(data);
+        displayAllRecipes();
         main();
     })
 })
 
-
+/**
+ */
 function main(){
     console.log("Add a tag");
     addTag("Coco", "ingredient");
 
-    console.log("Add cards");
-    addCard(RECIPES[0]);
-    addCard(RECIPES[1]);
-    addCard(RECIPES[2]);
-    addCard(RECIPES[3]);
+    console.log(CURRENT_RECIPES);
 }
 
 
