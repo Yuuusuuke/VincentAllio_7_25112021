@@ -25,20 +25,20 @@ function searchTag(data, type){
         switch (type){
             case "ingredient":
                 RECIPES.find(element => element.getID() === id).ingredients.forEach(e => {
-                    if(!items.includes(e.ingredient) && e.ingredient.includes(data)){
+                    if(!items.includes(e.ingredient) && e.ingredient.toLowerCase().includes(data.toLowerCase())){
                         items.push(e.ingredient);
                     }
                 });
                 break;
             case "appareil":
                 var element = RECIPES.find(element => element.getID() === id).appliance;
-                if(!items.includes(element) && element.includes(data)){
+                if(!items.includes(element) && element.toLowerCase().includes(data.toLowerCase())){
                     items.push(element);
                 }
                 break;
             case "ustensile":
                 RECIPES.find(element => element.getID() === id).ustensils.forEach(e => {
-                    if(!items.includes(e) && e.includes(data)){
+                    if(!items.includes(e) && e.toLowerCase().includes(data.toLowerCase())){
                         items.push(e);
                     }
                 });
