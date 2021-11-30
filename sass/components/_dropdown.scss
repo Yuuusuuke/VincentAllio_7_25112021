@@ -10,28 +10,45 @@
         display: inline-block;
         color: white;
         border-radius: 5px;
-        margin-right: 20px;
         padding: 23px 20px;
         cursor: pointer;
+        width: 100%;
 
-        width: 223px;
+        max-width: 223px;
 
         transition: all .5s ease;
 
-        &.expend {
-            width: 667px;
+        &:not(:first-child) {
+            margin-left: 20px;
+        }
 
-            &--2 {
-                width: 445px;
+        @include for-specific-size("668px") {
+            max-width: 100vw;
+            border-radius: 0;
+
+            &:not(:first-child) {
+                margin-top: 10px;
             }
+
+            &__text {
+                width: 82% !important;
+            }
+        }
+
+        @include for-specific-size("749px") {
+            margin-left: 0 !important;
+        }
+
+        @include for-specific-size("1260px") {
+            margin-left: 20px;
+        }
+
+        &.expend {
+            max-width: 667px;
         }
 
         &.expend &__text {
             width: 90%;
-        }
-
-        &.expend--2 &__text {
-            width: 87%;
         }
 
 

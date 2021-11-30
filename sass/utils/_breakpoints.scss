@@ -1,0 +1,15 @@
+$breakpoints: (mobile: 767px,
+    tablet_portrait: 1171px,
+    tablet_landscape: 1577px);
+
+@mixin for-size($range) {
+    @media screen and (max-width: map-get($map: $breakpoints, $key: $range)) {
+        @content;
+    }
+}
+
+@mixin for-specific-size($range) {
+    @media screen and (max-width: $range) {
+        @content;
+    }
+}

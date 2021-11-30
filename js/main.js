@@ -1,5 +1,5 @@
 /* Global variables */
-var RECIPES = [];
+var RECIPES = [], TAGS = [];
 
 /**
  * * Remove a specific tag in the tag area
@@ -11,6 +11,8 @@ var RECIPES = [];
 function removeTag(element){
     element.path[2].removeChild(element.path[1]);
     element.path[0].removeEventListener("click", removeTag);
+
+    TAGS.splice(TAGS.indexOf(element.path[1].children[0].innerHTML),1);
 }
 
 /**
@@ -43,6 +45,8 @@ function addTag(name, type){
     render.appendChild(subrender);
 
     area.appendChild(render);
+
+    TAGS.push(name);
 }
 
 /**
@@ -57,11 +61,12 @@ function addCard(card){
     render.classList.add("cardsTable__card");
     render.classList.add("card");
     render.classList.add("col");
+    render.id = card.getID();
 
     var subrender = document.createElement("img");
     subrender.classList.add("card__image");
     subrender.src = "#";
-    subrender.alt = card.name + " image";
+    subrender.alt = card.getName() + " image";
     render.appendChild(subrender);
 
     subrender = document.createElement("div");
@@ -72,7 +77,7 @@ function addCard(card){
     var element = document.createElement("h1");
     element.classList.add("card__description__header__title");
 
-    element.innerHTML = card.name;
+    element.innerHTML = card.getName();
 
     header.appendChild(element);
 
@@ -85,7 +90,7 @@ function addCard(card){
     element = document.createElement("p");
     element.classList.add("card__description__header__time");
 
-    element.innerHTML = card.time + " min";
+    element.innerHTML = card.getTime() + " min";
 
     header.appendChild(element);
     subrender.appendChild(header);
@@ -96,7 +101,7 @@ function addCard(card){
 
     element = document.createElement("p");
     element.classList.add("card__description__content__ingredients");
-    card.ingredients.forEach(e => {
+    card.getIngredients().forEach(e => {
         element.innerHTML += "<span class='card__description__content__ingredients--bold'>" + e.ingredient;
         if(e.quantity != undefined){
             element.innerHTML += " : </span>" + e.quantity;
@@ -111,7 +116,7 @@ function addCard(card){
     element = document.createElement("p");
     element.classList.add("card__description__content__explaination");
 
-    element.innerHTML = card.description;
+    element.innerHTML = card.getDescription();
 
     header.appendChild(element);
     subrender.appendChild(header);
@@ -125,11 +130,12 @@ function addCard(card){
  * 
  * @param  {node} parent
  */
-function eraseContent(parent){
+ function eraseContent(parent){
     while (parent.firstChild){
         parent.removeChild(parent.firstChild);
     }
 }
+
 /**
  * * Create a blank card in order to display card correctly
  */
@@ -145,7 +151,6 @@ function addVoidCard(){
  * @param  {JSON} data
  */
 function buildRecipes(data){
-    console.log(data);
     data.forEach(element => {
         RECIPES.push(CardFactory.createCard(element.id, element.name, element.servings, element.ingredients, element.time, element.description, element.appliance, element.ustensils));
       });
@@ -156,12 +161,12 @@ function buildRecipes(data){
 function displayAllRecipes(){
     RECIPES.forEach(element => {
         addCard(element);
+        CURRENT_RECIPES.push(element.getID());
     });
     
     if(RECIPES.length%3 === 2){
         addVoidCard();
     }
-    CURRENT_RECIPES = RECIPES;
 }
 
 window.addEventListener("load", () => {
@@ -186,8 +191,6 @@ window.addEventListener("load", () => {
 function main(){
     console.log("Add a tag");
     addTag("Coco", "ingredient");
-
-    console.log(CURRENT_RECIPES);
 }
 
 

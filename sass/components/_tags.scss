@@ -1,8 +1,8 @@
 .tags {
     margin-top: 25px;
-    margin-bottom: 15px;
     padding: 0;
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
 
     &__tag {
@@ -13,6 +13,9 @@
         align-items: center;
         color: white;
         border-radius: 5px;
+        margin-bottom: 15px;
+
+        animation: appearLeft .5s 1 both;
 
         &__text {
             font-family: "Lato";
@@ -26,6 +29,14 @@
             margin-left: 13px;
 
             cursor: pointer;
+        }
+
+        &:not(:first-child) {
+            margin-left: 20px;
+        }
+
+        @include for-specific-size("1260px") {
+            margin-left: 20px;
         }
     }
 }

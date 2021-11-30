@@ -22,6 +22,26 @@ a:hover {
 }
 
 /* Utils */
+@keyframes appearLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes appearTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 /* Layout */
 /* Components */
 .searchBar {
@@ -62,9 +82,9 @@ a:hover {
 
 .tags {
   margin-top: 25px;
-  margin-bottom: 15px;
   padding: 0;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
 }
 .tags__tag {
@@ -75,6 +95,8 @@ a:hover {
   align-items: center;
   color: white;
   border-radius: 5px;
+  margin-bottom: 15px;
+  animation: appearLeft 0.5s 1 both;
 }
 .tags__tag__text {
   font-family: "Lato";
@@ -86,6 +108,14 @@ a:hover {
   font-size: 20px;
   margin-left: 13px;
   cursor: pointer;
+}
+.tags__tag:not(:first-child) {
+  margin-left: 20px;
+}
+@media screen and (max-width: 1260px) {
+  .tags__tag {
+    margin-left: 20px;
+  }
 }
 
 .filters {
@@ -100,23 +130,42 @@ a:hover {
   display: inline-block;
   color: white;
   border-radius: 5px;
-  margin-right: 20px;
   padding: 23px 20px;
   cursor: pointer;
-  width: 223px;
+  width: 100%;
+  max-width: 223px;
   transition: all 0.5s ease;
 }
-.filters__dropdown.expend {
-  width: 667px;
+.filters__dropdown:not(:first-child) {
+  margin-left: 20px;
 }
-.filters__dropdown.expend--2 {
-  width: 445px;
+@media screen and (max-width: 668px) {
+  .filters__dropdown {
+    max-width: 100vw;
+    border-radius: 0;
+  }
+  .filters__dropdown:not(:first-child) {
+    margin-top: 10px;
+  }
+  .filters__dropdown__text {
+    width: 82% !important;
+  }
+}
+@media screen and (max-width: 749px) {
+  .filters__dropdown {
+    margin-left: 0 !important;
+  }
+}
+@media screen and (max-width: 1260px) {
+  .filters__dropdown {
+    margin-left: 20px;
+  }
+}
+.filters__dropdown.expend {
+  max-width: 667px;
 }
 .filters__dropdown.expend .filters__dropdown__text {
   width: 90%;
-}
-.filters__dropdown.expend--2 .filters__dropdown__text {
-  width: 87%;
 }
 .filters__dropdown__text {
   font-family: "Lato";
@@ -172,6 +221,7 @@ a:hover {
   min-height: 364px;
   max-width: 380px;
   margin-bottom: 50px;
+  animation: appearTop 0.5s 1 both;
 }
 .card:nth-child(3n+1) {
   margin-left: 0;
@@ -253,6 +303,11 @@ a:hover {
   flex-wrap: wrap;
   flex-direction: row;
   padding: 0;
+}
+@media screen and (max-width: 759px) {
+  .cardsTable {
+    justify-content: center !important;
+  }
 }
 
 .ingredient {

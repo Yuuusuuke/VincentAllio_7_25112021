@@ -16,6 +16,10 @@
     flex-direction: row;
 
     padding: 0;
+
+    @include for-specific-size("759px") {
+        justify-content: center !important;
+    }
 }
 
 .ingredient {

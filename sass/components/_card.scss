@@ -6,6 +6,8 @@
     max-width: 380px;
     margin-bottom: 50px;
 
+    animation: appearTop .5s 1 both;
+
     &:nth-child(3n+1) {
         margin-left: 0;
     }

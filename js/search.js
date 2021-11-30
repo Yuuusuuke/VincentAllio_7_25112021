@@ -19,9 +19,38 @@ function search(data){
  * @param  {string} type
  */
 function searchTag(data, type){
-    console.log("%c- - - - - - - - - - - - - -", "color: white;");
-    console.log("%cData : %c" + data, "color: red; font-weight: bold;", "color: white; font-weight: 400;");
-    console.log("%cType : %c" + type, "color: red; font-weight: bold;", "color: white; font-weight: 400;");
-    eraseContent(document.getElementsByClassName("filters__dropdown--"+type)[0].children[2]);
-    addTagDropdown(data, type);
+    var items = [];
+
+    CURRENT_RECIPES.forEach(id => {
+        switch (type){
+            case "ingredient":
+                RECIPES.find(element => element.getID() === id).ingredients.forEach(e => {
+                    if(!items.includes(e.ingredient) && e.ingredient.includes(data)){
+                        items.push(e.ingredient);
+                    }
+                });
+                break;
+            case "appareil":
+                var element = RECIPES.find(element => element.getID() === id).appliance;
+                if(!items.includes(element) && element.includes(data)){
+                    items.push(element);
+                }
+                break;
+            case "ustensile":
+                RECIPES.find(element => element.getID() === id).ustensils.forEach(e => {
+                    if(!items.includes(e) && e.includes(data)){
+                        items.push(e);
+                    }
+                });
+                break;
+        }
+    });
+
+    eraseContent(document.getElementsByClassName("filters__dropdown--"+type)[0].children[2])
+
+    var count = 0;
+    while(count < 50 && count != items.length){
+        addTagDropdown(items[count], type);
+        count++;
+    }
 }
