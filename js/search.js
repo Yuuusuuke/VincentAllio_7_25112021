@@ -22,4 +22,6 @@ function searchTag(data, type){
     console.log("%c- - - - - - - - - - - - - -", "color: white;");
     console.log("%cData : %c" + data, "color: red; font-weight: bold;", "color: white; font-weight: 400;");
     console.log("%cType : %c" + type, "color: red; font-weight: bold;", "color: white; font-weight: 400;");
+    eraseContent(document.getElementsByClassName("filters__dropdown--"+type)[0].children[2]);
+    addTagDropdown(data, type);
 }

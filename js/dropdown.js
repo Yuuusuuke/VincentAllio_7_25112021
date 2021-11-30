@@ -9,6 +9,7 @@ var INGRETOOGLE = false, APPATOOGLE = false, USTENTOOGLE = false;
 document.getElementsByClassName("filters__dropdown")[0].addEventListener("keyup", function (){
     if(this.children[0].value.length === 0){
         closeDropdown(this);
+        eraseContent(this.children[2]);
         INGRETOOGLE = false;
     }
     else{
@@ -20,6 +21,7 @@ document.getElementsByClassName("filters__dropdown")[0].addEventListener("keyup"
 document.getElementsByClassName("filters__dropdown")[1].addEventListener("keyup", function (){
     if(this.children[0].value.length === 0){
         closeDropdown(this);
+        eraseContent(this.children[2]);
         APPATOOGLE = false;
     }
     else{
@@ -31,6 +33,7 @@ document.getElementsByClassName("filters__dropdown")[1].addEventListener("keyup"
 document.getElementsByClassName("filters__dropdown")[2].addEventListener("keyup", function (){
     if(this.children[0].value.length === 0){
         closeDropdown(this);
+        eraseContent(this.children[2]);
         USTENTOOGLE = false;
     }
     else{
@@ -159,4 +162,23 @@ window.onclick = function(event){
             USTENTOOGLE = false;
         }
     }
+}
+
+/**
+ * * Display a tag in a dropdown
+ * 
+ * @param  {string} tag
+ * @param  {string} dropdown
+ */
+function addTagDropdown(tag, dropdown){
+    var area = document.getElementsByClassName("filters__dropdown--"+dropdown)[0];
+
+    var render = document.createElement("p")
+    render.classList.add(dropdown);
+    render.innerHTML = tag;
+    render.addEventListener("click", () => {
+        addTag(tag, dropdown);
+    })
+
+    area.children[2].appendChild(render);
 }
