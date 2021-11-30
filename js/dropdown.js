@@ -179,6 +179,7 @@ function addTagDropdown(tag, dropdown){
     render.addEventListener("click", () => {
         if(!TAGS.includes(tag)){
             addTag(tag, dropdown);
+            search("");
         }
     })
 

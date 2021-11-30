@@ -1,26 +1,32 @@
 /* Global variables */
-var CURRENT_RECIPES = [];
+var CURRENT_RECIPES = [], CHANGED = false;
 
 document.getElementsByClassName("searchBar__input")[0].addEventListener("keyup", function(){
     if(this.value.length >= 3){
         search(this.value);
+        CHANGED = true;
     }
-    else{
+    else if(CHANGED){
         for(var i=1; i<=50; i++){
             document.getElementById(i).style.display = "flex";
+            CURRENT_RECIPES = [];
+            RECIPES.forEach(element => {
+                CURRENT_RECIPES.push(element.getID());
+            });
         }
+        CHANGED = false;
     }
 })
 
 /**
- * * Search in json elements corresponding with the data in parameters and returns an array of these elements
+ * * Search in json elements corresponding with the data in parameters and tags selected and returns an array of these elements
  * 
  * @param  {string} data
- * 
- * @returns {Array}
  */
 function search(data){
+    console.log("New search: ");
     console.log(data);
+    console.log(TAGS);
 }
 
 /**
