@@ -7,13 +7,7 @@ document.getElementsByClassName("searchBar__input")[0].addEventListener("keyup",
         CHANGED = true;
     }
     else if(CHANGED){
-        for(var i=1; i<=50; i++){
-            document.getElementById(i).style.display = "flex";
-            CURRENT_RECIPES = [];
-            RECIPES.forEach(element => {
-                CURRENT_RECIPES.push(element.getID());
-            });
-        }
+        search("");
         CHANGED = false;
     }
 })
@@ -24,9 +18,69 @@ document.getElementsByClassName("searchBar__input")[0].addEventListener("keyup",
  * @param  {string} data
  */
 function search(data){
-    console.log("New search: ");
-    console.log(data);
-    console.log(TAGS);
+    var NEW_RECIPES = [];
+
+    if(TAGS.length != 0 || data != ""){
+        RECIPES.forEach(element => {
+            var found = true, i=0;
+
+            var ingredients = element.ingredients,
+            appareils = element.appliance,
+            ustensiles = element.ustensils;
+
+            while(found && i < TAGS.length){
+                var j=0, isHere = false;
+                while(!isHere && j < ingredients.length){
+                    if(ingredients[j].ingredient.toLowerCase().includes(TAGS[i].toLowerCase())){
+                        isHere = true;
+                    }
+                    j++;
+                }
+                j=0;
+               if(!isHere && appareils.toLowerCase().includes(TAGS[i].toLowerCase())){
+                    isHere = true;
+                }
+                while(!isHere && j < ustensiles.length){
+                    if(ustensiles[j].toLowerCase().includes(TAGS[i].toLowerCase())){
+                        isHere = true;
+                    }
+                    j++;
+                }
+                i++;
+                found = isHere;
+            }
+            if(found && !element.getDescription().toLowerCase().includes(data.toLowerCase()) && !element.getName().toLowerCase().includes(data.toLowerCase())){
+                var j=0, isHere = false;
+                while(!isHere && j < ingredients.length){
+                    if(ingredients[j].ingredient.toLowerCase().includes(data.toLowerCase())){
+                        isHere = true;
+                    }
+                    j++;
+                }
+                found = isHere;
+            }
+
+            if(found){
+                NEW_RECIPES.push(element.id);
+                document.getElementById(element.id).style.display = "flex";
+            }
+            else{
+                document.getElementById(element.id).style.display = "none";
+            }
+        });
+        CURRENT_RECIPES = NEW_RECIPES;
+    }
+    else{
+        for(var i=1; i<=50; i++){
+            document.getElementById(i).style.display = "flex";
+            CURRENT_RECIPES = [];
+            RECIPES.forEach(element => {
+                CURRENT_RECIPES.push(element.getID());
+            });
+        }
+    }
+
+    
 }
 
 /**
