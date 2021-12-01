@@ -185,6 +185,7 @@ function addTagDropdown(tag, dropdown){
             else{
                 search("");
             }
+            searchTag(document.getElementsByClassName("filters__dropdown")[0].children[0].value, dropdown);
         }
     })
 
