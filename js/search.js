@@ -1,20 +1,12 @@
 /* Global variables */
-var CURRENT_RECIPES = [], CHANGED = false;
+var CURRENT_RECIPES = [];
 
 document.getElementsByClassName("searchBar__input")[0].addEventListener("keyup", function(){
     if(this.value.length >= 3){
         search(this.value);
-        CHANGED = true;
     }
-    else if(CHANGED){
-        for(var i=1; i<=50; i++){
-            document.getElementById(i).style.display = "flex";
-            CURRENT_RECIPES = [];
-            RECIPES.forEach(element => {
-                CURRENT_RECIPES.push(element.getID());
-            });
-        }
-        CHANGED = false;
+    else{
+        search("");
     }
 })
 

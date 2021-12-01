@@ -313,6 +313,15 @@ a:hover {
   }
 }
 
+#error {
+  color: red;
+  font-family: "Lato";
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 21.6px;
+  display: none;
+}
+
 .ingredient {
   background-color: #3282F7;
 }

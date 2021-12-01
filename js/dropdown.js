@@ -179,7 +179,13 @@ function addTagDropdown(tag, dropdown){
     render.addEventListener("click", () => {
         if(!TAGS.includes(tag)){
             addTag(tag, dropdown);
-            search("");
+            if(document.getElementsByClassName("searchBar__input")[0].value.length >= 3){
+                search(document.getElementsByClassName("searchBar__input")[0].value);
+            }
+            else{
+                search("");
+            }
+            searchTag(document.getElementsByClassName("filters__dropdown")[0].children[0].value, dropdown);
         }
     })
 

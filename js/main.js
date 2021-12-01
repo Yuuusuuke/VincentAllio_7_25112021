@@ -13,7 +13,13 @@ function removeTag(element){
     element.path[0].removeEventListener("click", removeTag);
 
     TAGS.splice(TAGS.indexOf(element.path[1].children[0].innerHTML),1);
-    search("");
+    
+    if(document.getElementsByClassName("searchBar__input")[0].value.length >= 3){
+        search(document.getElementsByClassName("searchBar__input")[0].value);
+    }
+    else{
+        search("");
+    }
 }
 
 /**
@@ -168,6 +174,19 @@ function displayAllRecipes(){
     if(RECIPES.length%3 === 2){
         addVoidCard();
     }
+}
+
+/**
+ * * Display error at the error location
+ */
+ function displayError(){
+    document.getElementById("error").style.display = "block";
+}
+/**
+ * * Hide the error at the error location
+ */
+function hideError(){
+    document.getElementById("error").style.display = "none";
 }
 
 window.addEventListener("load", () => {
