@@ -1,14 +1,12 @@
 /* Global variables */
-var CURRENT_RECIPES = [], CHANGED = false;
+var CURRENT_RECIPES = [];
 
 document.getElementsByClassName("searchBar__input")[0].addEventListener("keyup", function(){
     if(this.value.length >= 3){
         search(this.value);
-        CHANGED = true;
     }
-    else if(CHANGED){
+    else{
         search("");
-        CHANGED = false;
     }
 })
 
@@ -70,6 +68,12 @@ function search(data){
             }
         });
         CURRENT_RECIPES = NEW_RECIPES;
+        if(CURRENT_RECIPES.length == 0){
+            displayError();
+        }
+        else{
+            hideError();
+        }
     }
     else{
         for(var i=1; i<=50; i++){
@@ -79,6 +83,7 @@ function search(data){
                 CURRENT_RECIPES.push(element.getID());
             });
         }
+        hideError();
     }
 
     

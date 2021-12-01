@@ -176,6 +176,18 @@ function displayAllRecipes(){
         addVoidCard();
     }
 }
+/**
+ * * Display error at the error location
+ */
+function displayError(){
+    document.getElementById("error").style.display = "block";
+}
+/**
+ * * Hide the error at the error location
+ */
+function hideError(){
+    document.getElementById("error").style.display = "none";
+}
 
 window.addEventListener("load", () => {
     fetch("./ressources/recipe.json")
