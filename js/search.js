@@ -19,6 +19,7 @@ document.getElementsByClassName("searchBar__input")[0].addEventListener("keyup",
  */
 function search(data){
     var NEW_RECIPES = [];
+    console.log(data);
 
     if(TAGS.length != 0 || data != ""){
         RECIPES.forEach(element => {
