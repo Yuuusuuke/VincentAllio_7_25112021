@@ -13,7 +13,6 @@ function removeTag(element){
     element.path[0].removeEventListener("click", removeTag);
 
     TAGS.splice(TAGS.indexOf(element.path[1].children[0].innerHTML),1);
-    console.log(document.getElementsByClassName("searchBar__input")[0].value);
 
     if(document.getElementsByClassName("searchBar__input")[0].value.length >= 3){
         search(document.getElementsByClassName("searchBar__input")[0].value);

@@ -17,10 +17,11 @@ document.getElementsByClassName("searchBar__input")[0].addEventListener("keyup",
  */
 function search(data){
     var NEW_RECIPES = [];
-    console.log(data);
 
     if(TAGS.length != 0 || data != ""){
-        RECIPES.forEach(element => {
+        for(var r=0; r < RECIPES.length; r++){
+            var element = RECIPES[r];
+        
             var found = true, i=0;
 
             var ingredients = element.ingredients,
@@ -66,7 +67,7 @@ function search(data){
             else{
                 document.getElementById(element.id).style.display = "none";
             }
-        });
+        }
         CURRENT_RECIPES = NEW_RECIPES;
         if(CURRENT_RECIPES.length == 0){
             displayError();
@@ -78,10 +79,10 @@ function search(data){
     else{
         for(var i=1; i<=50; i++){
             document.getElementById(i).style.display = "flex";
-            CURRENT_RECIPES = [];
-            RECIPES.forEach(element => {
-                CURRENT_RECIPES.push(element.getID());
-            });
+        }
+        CURRENT_RECIPES = [];
+        for(var i=0; i < RECIPES.length; i++){
+            CURRENT_RECIPES.push(RECIPES[i].getID())
         }
         hideError();
     }
